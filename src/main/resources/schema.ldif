@@ -1,0 +1,31 @@
+dn: dc=foo,dc=bar
+objectclass: top
+objectclass: dcObject
+objectclass: organization
+dc: foo
+o: foo
+
+dn: ou=user,dc=foo,dc=bar
+objectclass: top
+objectclass: organizationalUnit
+ou: user
+
+dn: cn=fae6d87c-c642-45a6-9f09-915c7fd8b08c,ou=user,dc=foo,dc=bar
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Rod Johnson
+sn: Johnson
+uid: fae6d87c-c642-45a6-9f09-915c7fd8b08c
+
+dn: ou=groups,dc=foo,dc=bar
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: cn=developers,ou=groups,dc=foo,dc=bar
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: developers
+uniqueMember: cn=fae6d87c-c642-45a6-9f09-915c7fd8b08c,ou=user,dc=foo,dc=bar

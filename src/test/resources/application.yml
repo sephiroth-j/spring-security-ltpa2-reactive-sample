@@ -1,0 +1,17 @@
+spring:
+    main:
+        web-application-type: "reactive"
+    ldap:
+        embedded:
+            baseDn: dc=foo,dc=bar
+            port: 33389
+
+logging:
+    level:
+        org:
+            springframework:
+                security:
+                    ldap: DEBUG
+        hello:
+            auth: DEBUG
+            
