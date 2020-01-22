@@ -14,6 +14,10 @@
 		<system>GitHub Issues</system>
 		<url>https://github.com/sephiroth-j/spring-security-ltpa2-reactive-sample/issues</url>
 	</issueManagement>
+	<ciManagement>
+		<system>Travis</system>
+		<url>https://travis-ci.com/sephiroth-j/spring-security-ltpa2-reactive-sample</url>
+	</ciManagement>
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
