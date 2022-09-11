@@ -1,4 +1,4 @@
 language: java
-dist: xenial
+dist: jammy
 jdk:
   - openjdk11
