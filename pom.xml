@@ -7,8 +7,8 @@
 	<artifactId>spring-security-ltpa2-reactive-sample</artifactId>
 	<name>Spring Security LTPA2 - Sample Project for Web Reactive</name>
 	<description>Spring Boot sample application to spring-security-ltpa2.</description>
-	<url>http://www.sephiroth-j.de/java/spring-security-ltpa2/</url>
-	<version>0.1.0-SNAPSHOT</version>
+	<url>https://www.sephiroth-j.de/java/spring-security-ltpa2/</url>
+	<version>0.2.0-SNAPSHOT</version>
 	<inceptionYear>2019</inceptionYear>
 	<issueManagement>
 		<system>GitHub Issues</system>
@@ -20,27 +20,22 @@
 	</ciManagement>
 	<licenses>
 		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <name>Apache-2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
 		</license>
 	</licenses>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.2.RELEASE</version>
+		<version>2.7.3</version>
+		<relativePath/>
 	</parent>
 	
 	<properties>
 		<project.java.version>1.8</project.java.version>
 		<java.version>${project.java.version}</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
-		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-		<lombok.version>[1.18.10,)</lombok.version>
 	</properties>
 	
 	<build>
@@ -52,7 +47,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.5</version>
+				<version>0.8.8</version>
 				<executions>
 					<execution>
 						<id>default-prepare-agent</id>
@@ -104,18 +99,13 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>spring-security-ltpa2</artifactId>
-			<version>[1.0.0,)</version>
+			<version>[1.1.1,1.99.99)</version>
 		</dependency>
 		<!-- end::security[] -->
 		<!-- caching -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<!-- caching -->
 		<dependency>
@@ -148,7 +138,7 @@
 	<repositories>
 		<repository>
 			<id>mrepo.sephiroth-j.de</id>
-			<url>http://mrepo.sephiroth-j.de/</url>
+			<url>https://mrepo.sephiroth-j.de/</url>
 		</repository>
 	</repositories>
 </project>

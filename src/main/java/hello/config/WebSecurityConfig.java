@@ -43,7 +43,7 @@ public class WebSecurityConfig
 {
 
 	@Bean
-	public SecurityWebFilterChain springSecurityFilterChain(final ServerHttpSecurity http, final ReactiveUserDetailsService userDetailsService, AuthenticationWebFilter ltpa2AuthenticationWebFilter)
+	public SecurityWebFilterChain springSecurityFilterChain(final ServerHttpSecurity http, final AuthenticationWebFilter ltpa2AuthenticationWebFilter)
 	{
 		http
 			.csrf().disable()
@@ -63,7 +63,7 @@ public class WebSecurityConfig
 	}
 
 	@Bean
-	AuthenticationWebFilter x509AuthenticationWebFilter(ReactiveUserDetailsService userDetailsService) throws GeneralSecurityException
+	AuthenticationWebFilter ltpa2AuthenticationWebFilter(ReactiveUserDetailsService userDetailsService) throws GeneralSecurityException
 	{
 		final Ltpa2AuthConverter converter = new Ltpa2AuthConverter();
 		converter.setSharedKey(sharedKey());
