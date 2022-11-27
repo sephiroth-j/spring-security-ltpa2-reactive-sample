@@ -95,6 +95,28 @@ class ApplicationTests
 	{
 		Ltpa2Token token = createTestToken();
 
+		webTestClient.get().uri("/hello")
+			.cookie("LtpaToken2", encryptToken(token))
+			.exchange()
+			.expectStatus().isOk();
+	}
+
+	@Test
+	void accessSecuredMethodWithAuthenticationThenOk() throws Exception
+	{
+		Ltpa2Token token = createTestToken();
+
+		webTestClient.get().uri("/secured-method")
+			.header(HttpHeaders.AUTHORIZATION, "LtpaToken2 ".concat(encryptToken(token)))
+			.exchange()
+			.expectStatus().isOk();
+	}
+
+	@Test
+	void accessSecuredMethodWithCookieThenOk() throws Exception
+	{
+		Ltpa2Token token = createTestToken();
+
 		webTestClient.get().uri("/secured-method")
 			.cookie("LtpaToken2", encryptToken(token))
 			.exchange()
