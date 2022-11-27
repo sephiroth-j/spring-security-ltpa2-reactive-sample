@@ -1,4 +1,4 @@
 language: java
 dist: jammy
 jdk:
-  - openjdk11
+  - openjdk17
