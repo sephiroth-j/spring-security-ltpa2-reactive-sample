@@ -29,6 +29,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.config.web.server.ServerHttpSecurity.CsrfSpec;
+import org.springframework.security.config.web.server.ServerHttpSecurity.HttpBasicSpec;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.ldap.DefaultLdapUsernameToDnMapper;
 import org.springframework.security.ldap.DefaultSpringSecurityContextSource;
@@ -46,17 +48,16 @@ public class WebSecurityConfig
 	public SecurityWebFilterChain springSecurityFilterChain(final ServerHttpSecurity http, final AuthenticationWebFilter ltpa2AuthenticationWebFilter)
 	{
 		http
-			.csrf().disable()
-			.httpBasic().disable()
-			.authorizeExchange()
+			.csrf(CsrfSpec::disable)
+			.httpBasic(HttpBasicSpec::disable)
+			.authorizeExchange(authorize -> authorize
 			.pathMatchers(
 				"/",
 				"/home"
 			).permitAll()
 			.pathMatchers("/hello").hasRole("DEVELOPERS")
 			// all other require any authentication
-			.anyExchange().authenticated()
-			.and()
+			.anyExchange().authenticated())
 			// apply ltpa2 authentication filter
 			.addFilterAt(ltpa2AuthenticationWebFilter, SecurityWebFiltersOrder.AUTHENTICATION);
 		return http.build();
