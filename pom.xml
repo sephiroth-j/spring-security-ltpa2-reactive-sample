@@ -15,12 +15,12 @@
 		<url>https://github.com/sephiroth-j/spring-security-ltpa2-reactive-sample/issues</url>
 	</issueManagement>
 	<ciManagement>
-		<system>Travis</system>
-		<url>https://travis-ci.com/sephiroth-j/spring-security-ltpa2-reactive-sample</url>
+		<system>GitHub</system>
+		<url>https://github.com/sephiroth-j/spring-security-ltpa2-reactive-sample/actions?query=workflow%3A%22CI+build%22</url>
 	</ciManagement>
 	<licenses>
 		<license>
-            <name>Apache-2.0</name>
+			<name>Apache-2.0</name>
 			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
 		</license>
 	</licenses>
@@ -50,7 +50,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.8</version>
+				<version>0.8.10</version>
 				<executions>
 					<execution>
 						<id>default-prepare-agent</id>
