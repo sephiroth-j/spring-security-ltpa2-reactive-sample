@@ -71,7 +71,7 @@ class ApplicationTests
 	}
 
 	@Test
-	void accessSecuredResourceWithInvalidAuthenticationShouldBeForbidden() throws Exception
+	void accessSecuredResourceWithInvalidAuthenticationShouldBeForbidden()
 	{
 		webTestClient.get().uri("/hello")
 			.header(HttpHeaders.AUTHORIZATION, "sadfdas")
@@ -80,7 +80,7 @@ class ApplicationTests
 	}
 
 	@Test
-	void accessSecuredResourceWithAuthenticationThenOk() throws Exception
+	void accessSecuredResourceWithAuthenticationThenOk() throws GeneralSecurityException
 	{
 		Ltpa2Token token = createTestToken();
 
@@ -91,7 +91,7 @@ class ApplicationTests
 	}
 
 	@Test
-	void accessSecuredResourceWithCookieThenOk() throws Exception
+	void accessSecuredResourceWithCookieThenOk() throws GeneralSecurityException
 	{
 		Ltpa2Token token = createTestToken();
 
@@ -102,7 +102,7 @@ class ApplicationTests
 	}
 
 	@Test
-	void accessSecuredMethodWithAuthenticationThenOk() throws Exception
+	void accessSecuredMethodWithAuthenticationThenOk() throws GeneralSecurityException
 	{
 		Ltpa2Token token = createTestToken();
 
@@ -113,7 +113,7 @@ class ApplicationTests
 	}
 
 	@Test
-	void accessSecuredMethodWithCookieThenOk() throws Exception
+	void accessSecuredMethodWithCookieThenOk() throws GeneralSecurityException
 	{
 		Ltpa2Token token = createTestToken();
 
@@ -125,7 +125,7 @@ class ApplicationTests
 
 	@Test
 	@WithMockUser(roles = "DEVELOPERS")
-	void accessSecuredResourceAuthenticatedThenOk() throws Exception
+	void accessSecuredResourceAuthenticatedThenOk()
 	{
 		webTestClient.get().uri("/hello")
 			.exchange()

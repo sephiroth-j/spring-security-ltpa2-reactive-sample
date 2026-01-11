@@ -31,6 +31,7 @@ import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity.CsrfSpec;
 import org.springframework.security.config.web.server.ServerHttpSecurity.HttpBasicSpec;
+import org.springframework.security.core.userdetails.ReactiveUserDetailsPasswordService;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.ldap.DefaultLdapUsernameToDnMapper;
 import org.springframework.security.ldap.DefaultSpringSecurityContextSource;
@@ -86,6 +87,13 @@ public class WebSecurityConfig
 		manager.setGroupSearchBase("ou=groups");
 
 		return manager;
+	}
+
+	// workaround for https://github.com/spring-projects/spring-security/issues/17986
+	@Bean
+	public ReactiveUserDetailsPasswordService userDetailsPasswordService()
+	{
+		return ReactiveUserDetailsPasswordService.NOOP;
 	}
 
 	private SecretKey sharedKey() throws GeneralSecurityException
